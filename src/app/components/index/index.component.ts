@@ -53,6 +53,7 @@ export class IndexComponent {
   ngOnInit(): void {
     this.getRandomPictures();
     this.getTop10();
+    this.getRanked();
   }
 
   voteForPicture(imageID: HTMLInputElement) {

@@ -89,7 +89,7 @@
   >
     <div style="display: flex; flex-direction: row">
       <h1 style="font-size: 24px; color: #1569c7">|</h1>
-      <h1 style="font-size: 24px; margin-left: 10px">Top 10</h1>
+      <h1 style="font-size: 24px; margin-left: 10px">Top 10 TODAY</h1>
     </div>
   </div>
 
@@ -144,7 +144,21 @@
                 margin-right: 10%;
               "
             >
-              <h2 class="fontcolor">{{ getrank[i].diff }}</h2>
+              <div *ngIf="getrank[i].diff > 0">
+                <h2 class="fontcolor">
+                  +{{ getrank[i].diff }}
+                  <mat-icon style="color: green">arrow_upward</mat-icon>
+                </h2>
+              </div>
+              <div *ngIf="getrank[i].diff < 0">
+                <h2 class="fontcolor">
+                  {{ getrank[i].diff }}
+                  <mat-icon style="color: red">arrow_downward</mat-icon>
+                </h2>
+              </div>
+              <div *ngIf="getrank[i].diff == 0">
+                <h2 class="fontcolor">NO</h2>
+              </div>
             </div>
           </div>
         </mat-card>
