@@ -51,7 +51,7 @@ export class MainComponent implements OnInit {
     let voteCount1: number;
     let voteCount2: number;
 
-    if (imageID == this.randompic.pic1.imageID) {
+    if (imageID === this.randompic.pic1.imageID) {
       voteCount1 = 1;
       voteCount2 = 0;
     } else {
