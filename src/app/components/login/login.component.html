@@ -1,0 +1,83 @@
+<body>
+  <div>
+    <mat-toolbar
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 80px;
+        background-color: #151b54;
+      "
+    >
+      <span style="font-size: 32px; color: white" routerLink="['']"
+        >Anime Mash</span
+      >
+    </mat-toolbar>
+  </div>
+
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      margin-top: 5%;
+      margin-left: 400px;
+      margin-right: 400px;
+      justify-content: center;
+    "
+  >
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <h1>Login</h1>
+    </div>
+    <form class="example-form">
+      <mat-form-field
+        class="example-full-width"
+        style="margin-left: 145px; margin-top: 50px; width: 60%"
+        appearance="outline"
+      >
+        <mat-label>Email</mat-label>
+        <input matInput #email />
+      </mat-form-field>
+      <mat-form-field
+        class="example-full-width"
+        style="margin-left: 145px; margin-top: 50px; width: 60%"
+        appearance="outline"
+      >
+        <mat-label>Password</mat-label>
+        <input matInput #password type="password" />
+      </mat-form-field>
+    </form>
+    <span style="margin-left: 400px">Forget your password?</span>
+
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      "
+    >
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="Login(email, password)"
+      >
+        LOGIN
+      </button>
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: 10px;
+        "
+      >
+        <h3>Don't have account?</h3>
+        <a href="/register">
+          <h3 style="font-weight: bolder; margin-left: 10px">
+            Register Now
+          </h3></a
+        >
+      </div>
+    </div>
+  </div>
+</body>

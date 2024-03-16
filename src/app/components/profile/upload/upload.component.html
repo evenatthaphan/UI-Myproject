@@ -1,0 +1,69 @@
+
+  <div
+    style="
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 150px;
+      margin-right: 150px;
+    "
+  >
+    <div style="display: flex; flex-direction: row">
+      <mat-icon>add_photo_alternate</mat-icon>
+      <h2 style="margin-left: 10px">UPLOAD PICTURE</h2>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 200px;
+      "
+    >
+      <div class="container">
+        <form class="modal">
+          <div class="content">
+            <span class="title">Upload a File</span>
+            <p class="message">
+              Select a file to upload from your computer or device.
+            </p>
+
+            <div class="actions">
+              <label for="file" class="button upload-btn">
+                <input
+                  type="file"
+                  id="file"
+                  (change)="onFileSelected($event)"
+                  accept="image/*"
+                  style="margin-bottom: 10px"
+                />
+                <br />
+
+                <input
+                  type="text"
+                  id="imageName"
+                  [(ngModel)]="imageName"
+                  placeholder="Enter Image Name"
+                />
+              </label>
+              <div class="file-uploaded">
+                <div class="result" style="margin-left: 10px">
+                  <button
+                    mat-stroked-button
+                    color="primary"
+                    (click)="uploadPic()"
+                  >
+                    Upload
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+

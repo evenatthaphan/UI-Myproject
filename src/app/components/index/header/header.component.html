@@ -1,0 +1,46 @@
+<div>
+  <mat-toolbar
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 80px;
+      background-color: #151b54;
+    "
+  >
+    <span style="font-size: 32px">Anime Mash</span>
+    <div>
+      <button
+        mat-button
+        style="font-size: 24px; margin-right: 30px; color: white"
+        (click)="navigateToIndex()"
+      >
+        Home
+      </button>
+
+      <button
+        mat-button
+        style="font-size: 24px; margin-right: 30px; color: white"
+        (click)="navigateToProfile()"
+      >
+        Profile
+      </button>
+
+      <!-- <div *ngIf="data.length > 0" style="margin-right: 30px">
+        <div *ngFor="let data of data">
+          <img src="{{ data.avatar }}" alt="profile" style="margin-left: 50px; border-radius: 50%" width="15%" class="img" />
+        </div>
+      </div> -->
+
+      <a href="">
+        <button
+          mat-button
+          style="font-size: 24px; margin-right: 30px; color: white"
+          routerLink="['']"
+        >
+          Logout
+        </button></a
+      >
+    </div>
+  </mat-toolbar>
+</div>

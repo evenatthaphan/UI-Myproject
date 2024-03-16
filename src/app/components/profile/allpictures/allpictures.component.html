@@ -1,0 +1,27 @@
+<div style="margin-left: 50px; margin-right: 50px">
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      margin-top: 5%;
+      justify-content: start;
+    "
+  >
+    <div *ngFor="let image of data">
+      <mat-card class="cardtop10" style="margin-top: 5%; margin-bottom: 20px">
+        <div style="display: flex; flex-direction: row">
+          <mat-card-content>
+            <img
+              [src]="image.imageURL"
+              alt="image"
+              class="imgtop10"
+            />
+          </mat-card-content>
+          <h4 style="margin-top: 10px">{{ image.imageName }}</h4>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<h1>allpicture</h1>

@@ -1,0 +1,103 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+#search-bar {
+    width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#search-button {
+    border: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#search-button i {
+    color: #555;
+    font-size: 18px;
+}
+
+#search-button:hover i {
+    color: #333;
+}
+
+mat-icon {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}
+
+
+
+
+
+.container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.item-container {
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 5rem;
+    box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-img {
+    width: 70%;
+}
+
+.item-img img {
+    border-radius: 50%;
+    border: 1px solid #000000;
+    width: 130px;
+    height: 130px;
+}
+
+.item-name {
+    width: 300%;
+    margin-left: 10px;
+}
+
+.item-button {
+    margin-left: 50px;
+    width: 60%;
+}
+
+.view-button {
+    background-color: #ffffff;
+    /* สีพื้นหลังของปุ่ม /
+    color: #333333; / สีข้อความของปุ่ม /
+    border: 1px solid #cccccc; / เส้นขอบของปุ่ม /
+    border-radius: 5px; / รูปร่างของขอบปุ่ม /
+    padding: 10px 20px; / การขยายขนาดของปุ่ม /
+    font-size: 16px; / ขนาดข้อความของปุ่ม /
+    cursor: pointer; / ปรับเป็นรูปแบบตัวชี้เมาส์ /
+  }
+
+  .view-button:hover {
+    background-color: #f0f0f0; / สีพื้นหลังของปุ่มเมื่อเม้าส์วางทับ */
+}

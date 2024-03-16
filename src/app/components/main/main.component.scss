@@ -1,0 +1,94 @@
+span{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.mat-raised-button{
+    width: 300%;
+    background-color: #52BE80;
+    color: white;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.card{
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0px 5px 5px 5px rgba(45, 46, 46, 0.5); /* เงา */
+    opacity: 0.8; /* ความโปร่งใส */
+}
+
+.cardcontent{
+    object-fit: cover;
+}
+
+
+.img{
+    width: 220px;
+    height: 270px;
+    object-fit: cover;
+}
+
+button{
+    border-radius: 20px 20px 20px 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.cardtop10{
+    width: 300%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #E5E8E8;
+    opacity: 0.8; /* ความโปร่งใส */
+}
+
+.imgtop10{
+    width: 120px;
+    height: 170px;
+    object-fit: cover;
+    border: 1px solid #090909bd;
+    border-radius: 8px;
+}
+
+.imageProfile{
+    object-fit: cover;
+    border-radius: 50%;
+    width: 50px;
+    margin-top: 10px;
+    border: 2px solid #3f0f8ebd;
+}
+
+.user{
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: black;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('/assets/image/anime-boy-chill-digital-art-4k-wallpaper-uhdpaper.com-284@0@j.jpg');
+    background-size: cover;
+    filter: blur(4px);
+}
+
+body {
+    overflow-y: auto;
+    color: white;
+}
+
+.fontcolor{
+    color: black;
+}

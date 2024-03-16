@@ -1,0 +1,173 @@
+<body>
+  <!-- <mat-toolbar
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 80px;
+      background-color: #151b54;
+    "
+  >
+    <span style="font-size: 32px">Anime Mash</span>
+    <div>
+      <button
+        mat-button
+        style="font-size: 24px; margin-right: 30px; color: white"
+        (click)="navigateToIndex()"
+      >
+        Home
+      </button>
+
+      <a href="/profile">
+        <button
+          mat-button
+          style="font-size: 24px; margin-right: 30px; color: white"
+          routerLink="['/profile']"
+        >
+          Profile
+        </button></a
+      >
+      <a href="">
+        <button
+          mat-button
+          style="font-size: 24px; margin-right: 30px; color: white"
+          routerLink="['']"
+        >
+          Logout
+        </button></a
+      >
+    </div>
+  </mat-toolbar> -->
+  <!-- <app-header></app-header> -->
+  <div>
+    <div style="display: flex; flex-direction: row; justify-content: flex-end">
+      <!-- <button
+      mat-stroked-button
+      color="primary"
+      style="margin-top: 10px; margin-right: 30px"
+      (click)="changePage1()" 
+    >
+      All pictures
+    </button> -->
+
+      <button
+        mat-stroked-button
+        color="primary"
+        style="margin-top: 10px; margin-right: 30px"
+        (click)="changePage2()"
+      >
+        Upload picture
+      </button>
+
+      <button
+        mat-stroked-button
+        color="primary"
+        style="margin-top: 10px; margin-right: 30px"
+        (click)="changePage3()"
+      >
+        Ranked
+      </button>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 150px;
+        margin-right: 150px;
+      "
+    >
+      <div *ngIf="data.length > 0">
+        <div
+          *ngFor="let data of data"
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+          "
+        >
+          <img
+            [src]="data.avatar"
+            style="margin-left: 50px; border-radius: 50%; object-fit: cover"
+            width="30%"
+            height="30%"
+            class="imageProfile"
+          />
+          <div>
+            <h1
+              style="
+                margin-left: 50px;
+                margin-top: 60px;
+                font-weight: bold;
+                font-size: 30px;
+                color: #1d4d83;
+              "
+            >
+              <mat-icon>badge</mat-icon> {{ data.username }}
+            </h1>
+
+            <button
+              mat-stroked-button
+              style="margin-top: 10px; margin-left: 50px"
+              (click)="navigateToEditProfile()"
+            >
+              edit profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr style="margin-left: 150px; margin-right: 150px" />
+  </div>
+  <br />
+
+  <ng-template ngIf="allimage.length > 0">
+    <div>
+      <div style="display: flex; flex-direction: row">
+        <mat-icon style="margin-left: 150px">photo_library</mat-icon>
+        <h2 style="margin-left: 10px">MY PICTURES</h2>
+      </div>
+      <div
+        style="
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          justify-content: start;
+          margin-left: 150px;
+          margin-right: 150px;
+          flex-wrap: nowrap; /* เพิ่ม flex-wrap: nowrap เพื่อไม่ให้ข้อมูลขยับลงล่าง */
+        "
+      >
+        <div
+          *ngFor="let item of allimage"
+          style="
+            display: flex; /* เพิ่ม display: flex เพื่อให้มีลักษณะเป็น flex container */
+            flex-wrap: nowrap; /* ให้ flex container ย่อยไม่ขยับไปข้างล่าง */
+            justify-content: start; /* ให้ข้อมูลภายใน container ย่อยจัดตำแหน่งชิดซ้าย */
+            flex-direction: row;
+            margin-left: 20px;
+            margin-bottom: 20px;
+          "
+        >
+          <img
+            src="{{ item.imageURL }}"
+            alt="photo"
+            width="200"
+            height="300"
+            style="
+              border: 1px solid #fff; /* กรอบรูป */
+              border-radius: 8px; /* ทำมุมโค้งบางนิด */
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template ngIf="allimage.length == 0">
+    <hr style="margin-left: 150px; margin-right: 150px" />
+    <router-outlet></router-outlet>
+  </ng-template>
+</body>
