@@ -138,7 +138,7 @@
         >
           <div style="display: flex; flex-direction: row">
             <mat-card-content>
-              <img [src]="item.imageURL" alt="top10" class="imgtop10" />
+              <img [src]="item.imageURL" alt="top10" class="imgtop10" (click)="viewStatistics(item.imageID)" />
             </mat-card-content>
             <div style="margin-left: 5px">
               <hr />

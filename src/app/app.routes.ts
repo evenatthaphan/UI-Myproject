@@ -10,6 +10,7 @@ import { IndexComponent } from './components/index/index.component';
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
 import { ProfileOtherComponent } from './components/profile-other/profile-other.component';
 import { ListComponent } from './components/list/list.component';
+import { StatComponent } from './components/stat/stat.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent},
   { path: 'other', component: ProfileOtherComponent},
   { path: 'list', component: ListComponent},
+  { path: 'stat', component: StatComponent},
   {
     path: 'profile',
     component: ProfileComponent,

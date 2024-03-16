@@ -33,7 +33,8 @@ export class MainComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private constants: Constants,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -122,5 +123,12 @@ export class MainComponent implements OnInit {
         console.error('API Error:', error);
       }
     );
+  }
+
+  viewStatistics(imageID: number){
+  
+    this.router.navigate(['/stat'], {
+      queryParams: { data: JSON.stringify(imageID) },
+    });
   }
 }
