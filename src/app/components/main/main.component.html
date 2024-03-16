@@ -138,7 +138,12 @@
         >
           <div style="display: flex; flex-direction: row">
             <mat-card-content>
-              <img [src]="item.imageURL" alt="top10" class="imgtop10" (click)="viewStatistics(item.imageID)" />
+              <img
+                [src]="item.imageURL"
+                alt="top10"
+                class="imgtop10"
+                (click)="viewStatistics(item.imageID)"
+              />
             </mat-card-content>
             <div style="margin-left: 5px">
               <hr />
@@ -158,6 +163,18 @@
                 Name: {{ item.imageName }}
               </h4>
               <h4 class="fontcolor">Score: {{ item.voteCount }}</h4>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-left: 60%;
+                margin-right: 10%;
+              "
+            >
+              <h2 class="fontcolor">{{ getrank[i].diff }}</h2>
             </div>
           </div>
         </mat-card>

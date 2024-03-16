@@ -46,11 +46,7 @@
             Score: {{ randompic.pic1.voteCount }}
           </h2>
         </mat-card>
-        <img
-          src="/assets/image/vs.png"
-          alt="vs"
-          width="10%"
-        />
+        <img src="/assets/image/vs.png" alt="vs" width="10%" />
         <mat-card class="card">
           <mat-card-content class="cardcontent">
             <img
@@ -115,7 +111,12 @@
         >
           <div style="display: flex; flex-direction: row">
             <mat-card-content>
-              <img [src]="item.imageURL" alt="top10" class="imgtop10" />
+              <img
+                [src]="item.imageURL"
+                alt="top10"
+                class="imgtop10"
+                (click)="viewStatistics(item.imageID)"
+              />
             </mat-card-content>
             <div
               style="display: flex; flex-direction: column; margin-left: 10px"
@@ -132,6 +133,18 @@
                 Name: {{ item.imageName }}
               </h4>
               <h4 class="fontcolor">Score: {{ item.voteCount }}</h4>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-left: 60%;
+                margin-right: 10%;
+              "
+            >
+              <h2 class="fontcolor">{{ getrank[i].diff }}</h2>
             </div>
           </div>
         </mat-card>

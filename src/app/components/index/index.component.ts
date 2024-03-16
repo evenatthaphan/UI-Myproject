@@ -41,11 +41,13 @@ export class IndexComponent {
   top10Data1: ImagePostRequest[] = [];
   top10Data2: UserPostRequest[] = [];
   top10Data3: VotePostRequest[] = [];
+  getrank: any;
 
   constructor(
     private http: HttpClient,
     private constants: Constants,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -92,6 +94,7 @@ export class IndexComponent {
     this.getRandomPictures();
     this.openSnackBar();
     this.getTop10();
+    this.getRanked();
   }
 
   getRandomPictures() {
@@ -129,6 +132,26 @@ export class IndexComponent {
         this.top10Data3 = response;
         console.log('API Response:', response);
        
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
+  }
+
+  viewStatistics(imageID: number){
+  
+    this.router.navigate(['/stat'], {
+      queryParams: { data: JSON.stringify(imageID) },
+    });
+  }
+
+  getRanked(){
+    const urlall = this.constants.API_ENDPOINT + '/show/get/diff';
+    this.http.get(urlall).subscribe(
+      (response: any) => {
+        this.getrank = response;
+        console.log('API Response getrank:', response);
       },
       (error) => {
         console.error('API Error:', error);

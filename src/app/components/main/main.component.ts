@@ -29,6 +29,7 @@ export class MainComponent implements OnInit {
   top10Data1: ImagePostRequest[] = [];
   top10Data2: UserPostRequest[] = [];
   top10Data3: VotePostRequest[] = [];
+  getrank: any;
 
   constructor(
     private http: HttpClient,
@@ -40,6 +41,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.getRandomPictures();
     this.getTop10();
+    this.getRanked();
   }
 
   voteForPicture(imageID: HTMLInputElement) {
@@ -81,6 +83,7 @@ export class MainComponent implements OnInit {
     this.getRandomPictures();
     this.openSnackBar();
     this.getTop10();
+    this.getRanked();
   }
 
   getRandomPictures() {
@@ -130,5 +133,18 @@ export class MainComponent implements OnInit {
     this.router.navigate(['/stat'], {
       queryParams: { data: JSON.stringify(imageID) },
     });
+  }
+
+  getRanked(){
+    const urlall = this.constants.API_ENDPOINT + '/show/get/diff';
+    this.http.get(urlall).subscribe(
+      (response: any) => {
+        this.getrank = response;
+        console.log('API Response getrank:', response);
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
   }
 }

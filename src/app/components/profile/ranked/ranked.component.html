@@ -7,7 +7,7 @@
     margin-right: 150px;
   "
 >
-  <div ngIf="allimage.length > 0">
+  <div *ngIf="allimage.length > 0">
     <div class="container">
       <div *ngFor="let item of allimage; let i = index">
         <div class="content-container">
