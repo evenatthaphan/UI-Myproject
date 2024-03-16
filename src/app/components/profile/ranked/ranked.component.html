@@ -1,65 +1,30 @@
-<html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dropdown</title>
-    <style>
-        /* ตกแต่ง dropdown */
-        select {
-            padding: 15px;
-            /* เพิ่ม padding เพื่อขยายขนาดช่อง select */
-            font-size: 16px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>');
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 20px;
-            width: 150px;
-            /* กำหนดความกว้างของช่อง select */
-            height: 50px;
-            /* กำหนดความสูงของช่อง select */
-        }
-
-        select:hover {
-            background-color: #f0f0f0;
-        }
-
-        select:focus {
-            background-color: #e0e0e0;
-        }
-    </style>
-</head>
-
 <body>
-        <ng-template ngIf="allimage.length > 0">
-            <div class="container">
-                <div *ngFor="let item of allimage; let i = index">
-                    <div class="content-container">
-                        <div class="img">
-                            <img src="{{ item.imageURL }}" alt="photo" width="200px" height="300px">
-                        </div>
-                        <div class="img-number">
-                            <h2>{{score_current[i].point}}</h2>
-                        </div>
-                        <div class="img-rank">
-                            <h2>rank</h2>
-                        </div>
-                        <div class="img-name">
-                            <h2>{{item.imageName}}</h2>
-                        </div>
-                        <div class="img-score">
-                            <h2>Score {{item.voteCount}}</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-
+  <ng-template ngIf="allimage.length > 0">
+    <div class="container">
+      <div *ngFor="let item of allimage; let i = index">
+        <div class="content-container">
+          <div class="img">
+            <img
+              src="{{ item.imageURL }}"
+              alt="photo"
+              width="200px"
+              height="300px"
+            />
+          </div>
+          <div class="img-number">
+            <h2>{{ score_current[i].point }}</h2>
+          </div>
+          <div class="img-rank">
+            <h2>rank</h2>
+          </div>
+          <div class="img-name">
+            <h2>{{ item.imageName }}</h2>
+          </div>
+          <div class="img-score">
+            <h2>Score {{ item.voteCount }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </body>
-</html>
