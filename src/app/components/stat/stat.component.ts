@@ -36,7 +36,7 @@ throw new Error('Method not implemented.');
   }
 
   getStat(data : number) {
-    const url = this.constants.API_ENDPOINT+'/get/score/statistics/'+data;
+    const url = this.constants.API_ENDPOINT+'/get/statistics?imageID='+data;
     this.http.get(url).subscribe(
       (response: any) => {
         this.chartData = response; // กำหนดข้อมูลสำหรับกราฟ 
