@@ -128,11 +128,9 @@ export class MainComponent implements OnInit {
     );
   }
 
-  viewStatistics(imageID: number){
-  
-    this.router.navigate(['/stat'], {
-      queryParams: { data: JSON.stringify(imageID) },
-    });
+
+  statPage(data: any){
+    this.router.navigate(['/stat'], { queryParams: { data: JSON.stringify(data) } });
   }
 
   getRanked(){

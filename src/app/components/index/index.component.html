@@ -115,7 +115,6 @@
                 [src]="item.imageURL"
                 alt="top10"
                 class="imgtop10"
-                (click)="viewStatistics(item.imageID)"
               />
             </mat-card-content>
             <div
@@ -133,6 +132,7 @@
                 Name: {{ item.imageName }}
               </h4>
               <h4 class="fontcolor">Score: {{ item.voteCount }}</h4>
+              <button (click)="statPage(item)" style="width: 60px; height: 40px;">View</button>
             </div>
             <div
               style="

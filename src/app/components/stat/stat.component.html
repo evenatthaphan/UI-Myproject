@@ -1,21 +1,36 @@
-<h1>Statistics</h1>
-    <div style="display: flex; align-items: center; padding: 10px;">
+<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            text-align: center;
+        }
 
-    </div>
-    <div *ngIf="data">
-        <div style="display: flex; flex-direction: row; width: 90%; margin-left: 50px; margin-bottom: 50px;">
-            <div>
-                <img [src]="data.imageURL" alt="image error" class="image"
-                    style="width: 200px; height: 200px; object-fit: cover; padding: 20px;">
-                <p style="color: black;"> Image Name : {{data.imageName}}</p>
-            </div>
-            <div class="simple-bar-chart" style="width: 90%;">
-                <div *ngFor="let item of chartData"  class="simple-bar-chart item" [style.--clr]="colorgraph()" [style.--val]="item.voteScore">
-                    <div class="label" style="color: black;">{{ item.day | date: 'yyyy-MM-dd' }}</div>
-                    <p style="margin-left: 45%; color: black;">{{ item.voteDate }}</p>
-                    <div class="value" [style.width.%]="item.voteScore"></div> 
-                
-            </div>
+        .chart {
+            margin: 20px auto; /* กำหนดระยะขอบซ้ายและขวาเท่ากัน และจัดการอยู่ตรงกลาง */
+            max-width: 1200px; /* กำหนดความกว้างสูงสุดของ chart */
+            border: 1px solid #ccc; /* เพิ่มเส้นขอบสีเทาเพื่อเพิ่มความสวยงาม */
+            border-radius: 5px; /* เพิ่มขอบมนและทำให้มุมของกรอบเป็นวงกลม */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อเพิ่มความลึก */
+        }
+
+        canvas {
+            display: block; /* ให้ canvas เป็น block element เพื่อให้กรอบที่มีความกว้างเท่ากับตัวเอง */
+            width: 100%; /* ทำให้ canvas มีความกว้างเท่ากับขอบตรงกลางของ .chart */
+            height: auto; /* ทำให้ canvas ปรับความสูงตามอัตราส่วน */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chart">
+            <canvas #myChart></canvas>
         </div>
-    </div> 
-
+    </div>
+</body>
+</html>
