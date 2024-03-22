@@ -146,21 +146,41 @@
             display: flex; /* เพิ่ม display: flex เพื่อให้มีลักษณะเป็น flex container */
             flex-wrap: nowrap; /* ให้ flex container ย่อยไม่ขยับไปข้างล่าง */
             justify-content: start; /* ให้ข้อมูลภายใน container ย่อยจัดตำแหน่งชิดซ้าย */
-            flex-direction: row;
+            flex-direction: column;
             margin-left: 20px;
             margin-bottom: 20px;
           "
         >
-          <img
-            src="{{ item.imageURL }}"
-            alt="photo"
-            width="200"
-            height="300"
-            style="
-              border: 1px solid #fff; /* กรอบรูป */
-              border-radius: 8px; /* ทำมุมโค้งบางนิด */
-            "
-          />
+          <div>
+            <h2 style="margin-bottom: 5px">{{ item.imageName }}</h2>
+          </div>
+          <div>
+            <img
+              src="{{ item.imageURL }}"
+              alt="photo"
+              width="200"
+              height="300"
+              style="
+                border: 1px solid #fff; /* กรอบรูป */
+                border-radius: 8px; /* ทำมุมโค้งบางนิด */
+              "
+            />
+          </div>
+          <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <h2 style="color: blue; margin-top: 15px">
+              Score : {{ item.voteCount }}
+            </h2>
+            <div>
+              <button
+                mat-fab
+                color="primary"
+                (click)="statPage(item)"
+                aria-label="Example icon button with a delete icon"
+              >
+                <mat-icon>query_stats</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

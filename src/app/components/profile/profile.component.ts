@@ -87,6 +87,10 @@ export class ProfileComponent {
     });
   }
 
+  statPage(data: any){
+    this.router.navigate(['/stat'], { queryParams: { data: JSON.stringify(data) } });
+  }
+
   getallpic() {
     const url = `${this.constants.API_ENDPOINT}/show/getimage/${this.userId}`;
 
