@@ -60,9 +60,10 @@ export class UploadComponent implements OnInit {
       const url = `${this.constants.API_ENDPOINT}/upload/${this.userId}`;
 
       const formData = new FormData();
-      formData.append('Image', this.selectedFile);
+      formData.append('Photo', this.selectedFile); // เปลี่ยนชื่อ key เป็น 'Photo'
+      formData.append('UserID', this.userId); // ส่ง UserID ไปด้วย
 
-      formData.append('Name_image', this.imageName);
+      formData.append('imageName', this.imageName);
 
       this.http.post(url, formData).subscribe(
         (response) => {
@@ -77,6 +78,7 @@ export class UploadComponent implements OnInit {
       console.error('No file selected for upload.');
     }
   }
+
 
   openSnackBar() {
     this._snackBar.open('Upload Image successfully.', 'Done', {
