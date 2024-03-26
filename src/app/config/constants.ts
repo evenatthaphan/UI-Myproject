@@ -5,4 +5,5 @@ import { Injectable } from '@angular/core';
 })
 export class Constants {
   public readonly API_ENDPOINT: string = 'https://nodeapi-uxch.onrender.com';
+  static BASE_URL: any;
 }

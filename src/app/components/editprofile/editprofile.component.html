@@ -23,7 +23,7 @@
       margin-right: 150px;
     "
   >
-  <form class="form">
+  <!-- <form class="form">
     <span class="form-title">Upload your Avatar</span>
     <p class="form-paragraph">
         File should be an image
@@ -33,6 +33,20 @@
     or
     <input type="file" accept="image/*" required="" id="file-input">
   </label>
-  </form>
+  </form> -->
+
+  <div *ngIf="userOriginal">
+    <form (ngSubmit)="updateProfile()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="userOriginal.username" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="userOriginal.email" required>
+  
+      <!-- Add other input fields for other properties -->
+  
+      <button type="submit">Update Profile</button>
+    </form>
+  </div>
 </div>
 </body>
