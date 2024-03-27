@@ -11,4 +11,5 @@ export class DataService {
   sendData(data: any) {
     this.dataSubject.next(data);
   }
+  
 }

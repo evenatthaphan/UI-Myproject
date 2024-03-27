@@ -27,7 +27,7 @@ export class UploadComponent implements OnInit {
   data: UserPostRequest[] = [];
   userId: any;
   selectedFile: File | null = null; // Added to declare selectedFile
-  imageName: string = '';
+  // imageName: string = '';
 
   constructor(
     private router: Router,
@@ -55,15 +55,17 @@ export class UploadComponent implements OnInit {
     this.selectedFile = event.target.files ? event.target.files[0] : null;
   }
 
-  uploadPic() {
+  uploadPic(imageName: string) {
+    console.log(imageName);
+    
     if (this.selectedFile) {
-      const url = `${this.constants.API_ENDPOINT}/upload/${this.userId}`;
+      const url = `${this.constants.API_ENDPOINT}/upload`;
 
       const formData = new FormData();
       formData.append('Photo', this.selectedFile); // เปลี่ยนชื่อ key เป็น 'Photo'
       formData.append('UserID', this.userId); // ส่ง UserID ไปด้วย
 
-      formData.append('imageName', this.imageName);
+      formData.append('imageName', imageName);
 
       this.http.post(url, formData).subscribe(
         (response) => {
@@ -88,3 +90,4 @@ export class UploadComponent implements OnInit {
     });
   }
 }
+

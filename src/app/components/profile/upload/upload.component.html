@@ -45,7 +45,7 @@
                 <input
                   type="text"
                   id="imageName"
-                  [(ngModel)]="imageName"
+                  #imageName
                   placeholder="Enter Image Name"
                 />
               </label>
@@ -54,7 +54,7 @@
                   <button
                     mat-stroked-button
                     color="primary"
-                    (click)="uploadPic()"
+                    (click)="uploadPic(imageName.value)"
                   >
                     Upload
                   </button>
