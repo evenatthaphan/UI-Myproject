@@ -12,6 +12,11 @@ import { HeaderComponent } from '../index/header/header.component';
 import { HttpClient } from '@angular/common/http';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+
+export class DialogAnimationsExampleDialog {
+  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
+}
 
 @Component({
   selector: 'app-profile',
@@ -26,14 +31,17 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     MatCard,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+   
   ],
 })
 export class ProfileComponent {
   // showImage: boolean = true;
   data: UserPostRequest[] = [];
   allimage: ImagePostRequest[] = [];
-  userId: number | null = null; 
+  userId: number | null = null;
+  imageID: number | null = null;
 
   constructor(
     private router: Router,
@@ -87,14 +95,31 @@ export class ProfileComponent {
     });
   }
 
-  statPage(data: any){
-    this.router.navigate(['/stat'], { queryParams: { data: JSON.stringify(data) } });
+  statPage(data: any) {
+    this.router.navigate(['/stat'], {
+      queryParams: { data: JSON.stringify(data) },
+    });
   }
 
   getallpic() {
     const url = `${this.constants.API_ENDPOINT}/show/getimage/${this.userId}`;
 
     this.http.get(url).subscribe(
+      (response: any) => {
+        console.log('API Response:', response);
+        this.allimage = response;
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
+  }
+
+
+  daletepicture() {
+    const url = `${this.constants.API_ENDPOINT}/delete/${this.imageID}`;
+
+    this.http.delete(url).subscribe(
       (response: any) => {
         console.log('API Response:', response);
         this.allimage = response;

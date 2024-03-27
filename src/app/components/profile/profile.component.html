@@ -1,5 +1,4 @@
 <body>
- 
   <!-- <app-header></app-header> -->
   <div>
     <div style="display: flex; flex-direction: row; justify-content: flex-end">
@@ -113,8 +112,24 @@
             margin-bottom: 20px;
           "
         >
-          <div>
-            <h2 style="margin-bottom: 5px">{{ item.imageName }}</h2>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div>
+              <h2 style="margin-bottom: 5px">{{ item.imageName }}</h2>
+            </div>
+            <div>
+              <button
+                mat-icon-button
+                aria-label="Example icon button with a vertical three dot icon"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </div>
           <div>
             <img
@@ -128,7 +143,13 @@
               "
             />
           </div>
-          <div style="display: flex; flex-direction: row; justify-content: space-between;">
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
             <h2 style="color: blue; margin-top: 15px">
               Score : {{ item.voteCount }}
             </h2>
