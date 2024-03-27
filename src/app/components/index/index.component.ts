@@ -37,11 +37,13 @@ import { ImagePostRequest } from '../../model/data_get_res';
   styleUrl: './index.component.scss',
 })
 export class IndexComponent {
+
   randompic: any;
   top10Data1: ImagePostRequest[] = [];
   top10Data2: UserPostRequest[] = [];
   top10Data3: VotePostRequest[] = [];
   getrank: any;
+
 
   constructor(
     private http: HttpClient,
@@ -157,5 +159,9 @@ export class IndexComponent {
         console.error('API Error:', error);
       }
     );
+  }
+
+  showprofile(data: any){
+    this.router.navigate(['/profileother'], { queryParams: { data: JSON.stringify(data) } });
   }
 }

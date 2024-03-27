@@ -111,11 +111,7 @@
         >
           <div style="display: flex; flex-direction: row">
             <mat-card-content>
-              <img
-                [src]="item.imageURL"
-                alt="top10"
-                class="imgtop10"
-              />
+              <img [src]="item.imageURL" alt="top10" class="imgtop10" />
             </mat-card-content>
             <div
               style="display: flex; flex-direction: column; margin-left: 10px"
@@ -125,16 +121,15 @@
                   [src]="top10Data2[i].avatar"
                   alt="profile"
                   class="imageProfile"
+                  (click)="showprofile(item)"
                 />
                 <h4 class="user">{{ top10Data2[i].username }}</h4>
               </div>
-              <br/>
-              <button (click)="statPage(item)" style="width: 60px; height: 20px;">View</button>
+              <!-- <button (click)="statPage(item)" style="width: 60px; height: 20px;">View</button> -->
               <h4 style="margin-top: 10px" class="fontcolor">
                 Name: {{ item.imageName }}
               </h4>
               <h4 class="fontcolor">Score: {{ item.voteCount }}</h4>
-              
             </div>
             <div
               style="
@@ -146,6 +141,17 @@
                 margin-right: 10%;
               "
             >
+              <!-- <div style="margin-right: 50px;">
+                <button
+                  mat-fab
+                  color="primary"
+                  (click)="statPage(item)"
+                  aria-label="Example icon button with a delete icon"
+                  class="stat"
+                >
+                  <mat-icon>query_stats</mat-icon>
+                </button>
+              </div> -->
               <div *ngIf="getrank[i].diff > 0">
                 <h2 class="fontcolor">
                   +{{ getrank[i].diff }}
@@ -160,6 +166,17 @@
               </div>
               <div *ngIf="getrank[i].diff == 0">
                 <h2 class="fontcolor">NO</h2>
+              </div>
+              <div style="margin-left: 50px;">
+                <button
+                  mat-fab
+                  color="primary"
+                  (click)="statPage(item)"
+                  aria-label="Example icon button with a delete icon"
+                  class="stat"
+                >
+                  <mat-icon>query_stats</mat-icon>
+                </button>
               </div>
             </div>
           </div>

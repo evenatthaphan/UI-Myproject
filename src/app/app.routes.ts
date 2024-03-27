@@ -22,6 +22,7 @@ export const routes: Routes = [
   { path: 'other', component: ProfileOtherComponent},
   { path: 'list', component: ListComponent},
   { path: 'stat', component: StatComponent},
+  { path: 'profileother', component: ProfileOtherComponent},
   {
     path: 'profile',
     component: ProfileComponent,
