@@ -144,8 +144,13 @@ export class IndexComponent {
 
 
 
-  statPage(data: any){
-    this.router.navigate(['/stat'], { queryParams: { data: JSON.stringify(data) } });
+  statPage(imageID: number) {
+    this.router.navigate(['/stat'], {
+      queryParams: {
+        data: JSON.stringify(this.top10Data1),
+        imageID: JSON.stringify(imageID),
+      },
+    });
   }
 
   getRanked(){

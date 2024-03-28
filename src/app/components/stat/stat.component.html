@@ -17,16 +17,16 @@
     <h1 style="margin-left: 30%">Statistics</h1>
   </div>
 
-  <div style="display: flex; flex-direction: row">
+  <div style="display: flex;">
     <!-- ส่วนทางด้านซ้าย -->
     <div style="width: 30%; margin-top: 5%">
       <div
         *ngFor=" let item of data2  "
         style="margin-left: 50px; margin-bottom: 50px"
       >
-        <div>
+        <!-- <div>
           <img
-            [src]="item.image.imageURL"
+            [src]="item.imageURL"
             alt="image error"
             class="image"
             style="
@@ -36,11 +36,11 @@
               padding: 20px;
             "
           />
-          <p>Image Name : {{ item.image.imageName }}</p>
+          <p>Image Name : {{ item.imageName }}</p>
           <div>
-            <p>Score : {{ item.image.voteCount }}</p>
+            <p>Score : {{ item.voteCount }}</p>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- <div *ngFor="let voteItem of item.vote">
@@ -49,7 +49,7 @@
     </div>
 
     <!-- ส่วนทางด้านขวา -->
-    <div style="width: 70%">
+    <div style="width: 100%">
       <div id="chartContainer">
         <canvas id="myChart"></canvas>
       </div>

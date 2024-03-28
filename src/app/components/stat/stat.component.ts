@@ -29,10 +29,7 @@ import { LinearScale } from 'chart.js';
 export class StatComponent implements OnInit {
   @ViewChild('myChart', { static: true }) myChart!: ElementRef;
   data: UserPostRequest[] = [];
-  data2: any[] = [
-    { image: [], vote: [], user: [] },
-    // Add more objects as needed
-  ];
+  data2: ImagePostRequest[] = [];
 
   userId: number | null = null;
   imageId: number | null = null;
@@ -128,7 +125,7 @@ export class StatComponent implements OnInit {
         container.style.marginTop = '-10%';
         container.style.width = '700px';
         container.style.height = '500px';
-        container.style.marginLeft = '50px';
+        // container.style.marginLeft = '50px';
 
         const canvas = document.createElement('canvas');
         canvas.id = 'myChart-' + imageID.imageID; // ใช้ imageId ในการกำหนด ID ของ canvas

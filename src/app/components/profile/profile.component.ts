@@ -131,17 +131,24 @@ export class ProfileComponent {
     );
   }
 
-  daletepicture() {
-    const url = `${this.constants.API_ENDPOINT}/delete/${this.imageID}`;
-
-    this.http.delete(url).subscribe(
-      (response: any) => {
-        console.log('API Response:', response);
-        this.allimage = response;
-      },
-      (error) => {
-        console.error('API Error:', error);
-      }
+  daletepicture(imageID: number) {
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this photo?'
     );
+    if (confirmed) {
+      const url = `${this.constants.API_ENDPOINT}/delete/${imageID}`;
+
+      this.http.delete(url).subscribe(
+        (response: any) => {
+          console.log('API Response:', response);
+          this.allimage = response;
+        },
+        (error) => {
+          console.error('API Error:', error);
+        }
+      );
+    }
   }
+
+  
 }
