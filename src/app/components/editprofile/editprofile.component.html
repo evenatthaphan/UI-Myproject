@@ -1,61 +1,122 @@
-<!-- 
-<div style="display: flex; justify-content: center; margin-top: 50px">
-  <mat-card class="card">
-    <mat-card-title
-      style="margin-left: 40%; margin-top: 10px; font-weight: bold"
-      >Edit Profile</mat-card-title
-    >
-    <div>
-    
-       <img src="https://cdn-icons-png.flaticon.com/512/6711/6711415.png" alt="upload" width="30%"> 
-     <input type="file" id="profilePhoto" accept="image/*" style="display: none;">
-    </div>
-  </mat-card>
-</div> -->
-
 <body>
-
-  <div style="display: flex; align-items: center; padding: 10px;">
-    <button class="button" (click)="goBack()" style="margin-left: 10%;">
-      <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
-        <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
+  <div style="display: flex; align-items: center; padding: 10px">
+    <button class="button" (click)="goBack()" style="margin-left: 10%">
+      <svg
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+      >
+        <path
+          d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
+        ></path>
       </svg>
-      <span style="color: black;">Back</span>
+      <span style="color: black">Back</span>
     </button>
   </div>
   <div
     style="
       display: flex;
       flex-direction: row;
-      margin-top: 100px;
-      margin-left: 150px;
+      margin-top: 20px;
+      margin-left: 100px;
       margin-right: 150px;
     "
   >
-  <!-- <form class="form">
-    <span class="form-title">Upload your Avatar</span>
-    <p class="form-paragraph">
-        File should be an image
-      </p>
-     <label for="file-input" class="drop-container">
-    <span class="drop-title">Drop files here</span>
-    or
-    <input type="file" accept="image/*" required="" id="file-input">
-  </label>
-  </form> -->
+    <h2 style="font-family: monospace; transform: scale(1.5)">
+      Edit your profile
+    </h2>
+    <div style="margin-left: 10px; margin-right: 10px" class="container">
+      <form
+        style="
+          width: 100%;
+          margin-left: 10px;
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-top: -80px;
+        "
+        class="form"
+      >
+        <!-- file -->
+        <div style="width: 100%; margin-top: 85px; margin-left: -120px">
+          <img
+            src="{{ imageUrl || data[0].avatar }}"
+            alt="your Image"
+            style="
+              width: 250px;
+              height: 250px;
+              margin-left: 35%;
+              border-radius: 20px;
+              object-fit: cover;
+            "
+          />
+        </div>
+        <!-- เนื้อหาฝั่งขวา: ฟอร์ม -->
+        <div style="width: 100%">
+          <label for="Username" class="label">Username</label>
+          <input
+            type="text"
+            value="{{ data[0].username }}"
+            placeholder="{{ data[0].username }}"
+            id="UserName"
+            name="UserName"
+            class="input"
+            [(ngModel)]="UserName"
+          />
+          <!-- <label for="Name" class="label">Name</label>
+          <input type="text" value="{{Data_User[0].Name}}" placeholder="{{Data_User[0].Name}}" id="Name" name="Name"  class="input" [(ngModel)]="Name"> -->
+          <label for="Email" class="label">Email</label>
+          <input
+            type="Email"
+            value="{{ data[0].email }}"
+            placeholder="{{ data[0].email }}"
+            id="Email"
+            name="Email"
+            class="input"
+            [(ngModel)]="Email"
+          />
+          <label for="Avatar" class="label">Choose Image </label><br /><br />
+          <label for="file" class="button upload-btn"
+            >Choose File here !!
 
-  <div *ngIf="userOriginal">
-    <form (ngSubmit)="updateProfile()">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" #userName required>
-  
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" #email required>
-  
-      <!-- Add other input fields for other properties -->
-  
-      <button type="submit">Update Profile</button>
-    </form>
+            <input
+              type="file"
+              id="Avatar"
+              name="Avatar"
+              accept="image/*"
+              [(ngModel)]="Avatar"
+              (change)="FileSelected($event)"
+            />
+          </label>
+          <!-- คำเตือน -->
+          <h1 style="color: red; margin-right: 155%; margin-bottom: -2%">*</h1>
+          <label for="Password" class="label">ConfirmPassword</label>
+          <input
+            type="Password"
+            id="Password"
+            name="Password"
+            required="Please enter information"
+            class="input"
+            [(ngModel)]="Password"
+          />
+          <!-- ปุ่ม -->
+          <div
+            style="display: flex; justify-content: space-between; width: 100%"
+          >
+            <div>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="frofile(data[0].userID)"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 </body>

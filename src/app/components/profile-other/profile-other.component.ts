@@ -1,11 +1,10 @@
-
 import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Constants } from '../../config/constants';
 import { ChangeDetectorRef } from '@angular/core';
 import { UserPostRequest, ImagePostRequest } from '../../model/data_get_res';
@@ -31,9 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './profile-other.component.scss'
 })
 export class ProfileOtherComponent {
-
   // showImage: boolean = true;
-  data: UserPostRequest[] = [];
+  data: any;
   allimage: ImagePostRequest[] = [];
   userId: number | null = null; 
 
@@ -42,8 +40,7 @@ export class ProfileOtherComponent {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     private constants: Constants,
-    private http: HttpClient,
-    private location: Location
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -71,6 +68,13 @@ export class ProfileOtherComponent {
       queryParams: { data: JSON.stringify(this.data) },
     });
   }
+  navigateToProfile() {
+    this.router.navigate(['/profile'], { queryParams: { data: JSON.stringify(this.data) } });
+  }
+
+  navigateToList() {
+    this.router.navigate(['/list']);
+  }
 
   // changePage1() {
   //   this.router.navigate(['/profile/allpicture'], {
@@ -78,14 +82,9 @@ export class ProfileOtherComponent {
   //   });
   // }
 
-  goBack(): void {
-    this.location.back();
-  }
-
-
   
   changePage3() {
-    this.router.navigate(['/profile/ranked'], {
+    this.router.navigate(['/profile-other/ranked-other'], {
       queryParams: { data: JSON.stringify(this.data) },
     });
   }
@@ -95,11 +94,11 @@ export class ProfileOtherComponent {
   }
 
   getallpic() {
-    const url = `${this.constants.API_ENDPOINT}/show/getimage/${this.userId}`;
+    const url = `${this.constants.API_ENDPOINT}/show/getimage/${this.data.userID}`;
 
     this.http.get(url).subscribe(
       (response: any) => {
-        console.log('API Response:', response);
+        console.log('API Response:', response, this.data.userID);
         this.allimage = response;
       },
       (error) => {

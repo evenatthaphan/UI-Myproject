@@ -24,6 +24,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
+  isListPage = false;
   data: any;
 
   constructor(private http: HttpClient, private constants: Constants, private route: ActivatedRoute, private router: Router) {}
@@ -41,7 +42,10 @@ export class ListComponent {
   }
 
   onClick(i: any) {
-    const selectedData = this.data[i];
-    this.router.navigate(['/profile'], { queryParams: { data: JSON.stringify(selectedData) } });
+    this.router.navigate(['/profileother'], { queryParams: { data: JSON.stringify(this.data[i]) } });
+  }
+
+  navigateToIndex() {
+    this.router.navigate(['/list']);
   }
 }

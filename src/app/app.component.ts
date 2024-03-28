@@ -31,6 +31,8 @@ export class AppComponent {
   isLoginPage: boolean = false;
   isRegisterPage: boolean = false;
   isVotePage: boolean = false;
+  isListPage: boolean = false;
+  isOtherPage: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
@@ -40,6 +42,8 @@ export class AppComponent {
         this.isLoginPage = currentUrl === '/login';
         this.isRegisterPage = currentUrl === '/register';
         this.isVotePage = currentUrl === '/vote';
+        this.isListPage = currentUrl === '/list';
+        this.isOtherPage = currentUrl === '/profileother';
 
         console.log('URL:', currentUrl);
         console.log('isVotePage:', this.isVotePage);

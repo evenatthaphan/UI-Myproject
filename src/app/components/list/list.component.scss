@@ -88,16 +88,27 @@ mat-icon {
 }
 
 .view-button {
-    background-color: #ffffff;
-    /* สีพื้นหลังของปุ่ม /
-    color: #333333; / สีข้อความของปุ่ม /
-    border: 1px solid #cccccc; / เส้นขอบของปุ่ม /
-    border-radius: 5px; / รูปร่างของขอบปุ่ม /
-    padding: 10px 20px; / การขยายขนาดของปุ่ม /
-    font-size: 16px; / ขนาดข้อความของปุ่ม /
-    cursor: pointer; / ปรับเป็นรูปแบบตัวชี้เมาส์ /
-  }
+    background-color: #ffffff; /* Button background color */
+    color: #333333; /* Button text color */
+    border: 1px solid #cccccc; /* Button border */
+    border-radius: 5px; /* Button border radius */
+    padding: 10px 20px; /* Button padding */
+    font-size: 16px; /* Button text size */
+    cursor: pointer; /* Cursor style */
+}
 
-  .view-button:hover {
-    background-color: #f0f0f0; / สีพื้นหลังของปุ่มเมื่อเม้าส์วางทับ */
+.view-button:hover {
+    background-color: #f0f0f0; /* Button background color on hover */
+}
+
+span{
+    color: white;
+}
+
+button{
+    border-radius: 20px 20px 20px 20px;
+}
+
+.img{
+    object-fit: cover;
 }
