@@ -11,6 +11,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { ProfileOtherComponent } from './components/profile-other/profile-other.component';
 import { ListComponent } from './components/list/list.component';
 import { StatComponent } from './components/stat/stat.component';
+import { RankedOtherComponent } from './components/profile-other/ranked-other/ranked-other.component';
 
 
 export const routes: Routes = [
@@ -22,7 +23,9 @@ export const routes: Routes = [
   { path: 'other', component: ProfileOtherComponent},
   { path: 'list', component: ListComponent},
   { path: 'stat', component: StatComponent},
-  { path: 'profileother', component: ProfileOtherComponent},
+  { path: 'profileother', component: ProfileOtherComponent, children: [
+    { path: 'ranked-other', component: RankedOtherComponent}
+  ]},
   {
     path: 'profile',
     component: ProfileComponent,

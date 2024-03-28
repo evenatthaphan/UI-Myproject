@@ -63,7 +63,7 @@
             id="UserName"
             name="UserName"
             class="input"
-            [(ngModel)]="UserName"
+            [(ngModel)]="username"
           />
           <!-- <label for="Name" class="label">Name</label>
           <input type="text" value="{{Data_User[0].Name}}" placeholder="{{Data_User[0].Name}}" id="Name" name="Name"  class="input" [(ngModel)]="Name"> -->
@@ -75,7 +75,7 @@
             id="Email"
             name="Email"
             class="input"
-            [(ngModel)]="Email"
+            [(ngModel)]="email"
           />
           <label for="Avatar" class="label">Choose Image </label><br /><br />
           <label for="file" class="button upload-btn"
@@ -83,16 +83,16 @@
 
             <input
               type="file"
-              id="Avatar"
-              name="Avatar"
+              id="avatar"
+              name="avatar"
               accept="image/*"
-              [(ngModel)]="Avatar"
+              [(ngModel)]="avatar"
               (change)="FileSelected($event)"
             />
           </label>
           <!-- คำเตือน -->
           <h1 style="color: red; margin-right: 155%; margin-bottom: -2%">*</h1>
-          <label for="Password" class="label">ConfirmPassword</label>
+          <!-- <label for="Password" class="label">ConfirmPassword</label>
           <input
             type="Password"
             id="Password"
@@ -100,7 +100,7 @@
             required="Please enter information"
             class="input"
             [(ngModel)]="Password"
-          />
+          /> -->
           <!-- ปุ่ม -->
           <div
             style="display: flex; justify-content: space-between; width: 100%"

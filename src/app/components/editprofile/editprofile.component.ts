@@ -22,16 +22,16 @@ export class EditprofileComponent {
   data: UserPostRequest[] = [];
   userId: any;
   userOriginal: any; // ประกาศตัวแปร userOriginal และกำหนดค่าเริ่มต้นเป็น null  
-  UserName: string="";
-  Email: string="";
+  username: string="";
+  email: string="";
   userForm!: FormGroup;
-  Avatar: File | undefined;
+  avatar: File | undefined;
   Data_User: any;
   Password: any;
   Data: any;
 
   constructor(
-    private Constants: Constants, 
+    private constants: Constants, 
     private route: ActivatedRoute, 
     private http: HttpClient,
     private router : Router, 
@@ -63,7 +63,7 @@ export class EditprofileComponent {
 
   frofile(userID: number) {
 
-    if (!this.UserName) {
+    if (!this.username) {
       alert('Please enter the UserName .'); 
       return; 
     }
@@ -72,7 +72,7 @@ export class EditprofileComponent {
     //   return; 
     // }
 
-    if (!this.Email) {
+    if (!this.email) {
       alert('Please enter the Email .'); 
       return; 
   }
@@ -85,18 +85,15 @@ export class EditprofileComponent {
 
 
     const formData = new FormData();
-    formData.append('UserName', (document.getElementById('UserName') as HTMLInputElement).value);
+    formData.append('username', (document.getElementById('username') as HTMLInputElement).value);
     // formData.append('Name', (document.getElementById('Name') as HTMLInputElement).value);
-    formData.append('Email', (document.getElementById('Email') as HTMLInputElement).value);
-    formData.append('Password', (document.getElementById('Password') as HTMLInputElement).value);
-    formData.append('Avatar', fileInput.files[0]);
+    formData.append('email', (document.getElementById('email') as HTMLInputElement).value);
 
-    const urledituser = this.Constants.API_ENDPOINT+'/update/edit/'+ userID;
+    const urledituser = `${this.constants.API_ENDPOINT}/update/edit/${this.userId}`;
     this.http.put(urledituser,formData).subscribe(
       response => {
         console.log('save Image successfully:', response);
         alert(' save Frofile successfully!');
-        this.goBack()
       },
       error => {
         console.error('Error frofile edit:', error);
@@ -119,10 +116,10 @@ export class EditprofileComponent {
       reader.readAsDataURL(file);
   }
   
-    dataprifile(userID: number){
-      const dataimage = this.Constants.API_ENDPOINT+'/getuserprofile'+ userID;
+    dataprifile(){
+      const dataimage = `${this.constants.API_ENDPOINT}/show/getimage/${this.userId}`;
       this.http.get(dataimage).subscribe((Data:any)=>{
-        this.Data_User = Data ;
+        this.data = Data ;
         // console.log("Data_User : ",this.Data_User);
         
       });

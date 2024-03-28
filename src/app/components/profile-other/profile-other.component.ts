@@ -84,7 +84,7 @@ export class ProfileOtherComponent {
 
   
   changePage3() {
-    this.router.navigate(['/profile-other/ranked-other'], {
+    this.router.navigate(['/profileother/ranked-other'], {
       queryParams: { data: JSON.stringify(this.data) },
     });
   }

@@ -37,13 +37,13 @@ import { ImagePostRequest } from '../../model/data_get_res';
   styleUrl: './index.component.scss',
 })
 export class IndexComponent {
-
   randompic: any;
   top10Data1: ImagePostRequest[] = [];
   top10Data2: UserPostRequest[] = [];
   top10Data3: VotePostRequest[] = [];
   getrank: any;
-
+  data: any;
+  
 
   constructor(
     private http: HttpClient,
@@ -134,7 +134,6 @@ export class IndexComponent {
         this.top10Data2 = response;
         this.top10Data3 = response;
         console.log('API Response:', response);
-       
       },
       (error) => {
         console.error('API Error:', error);
@@ -142,7 +141,9 @@ export class IndexComponent {
     );
   }
 
-
+  onClick(i: number) {
+    this.router.navigate(['/profileother'], { queryParams: { data: JSON.stringify(this.top10Data1), i: JSON.stringify(i), } });
+  }
 
   statPage(imageID: number) {
     this.router.navigate(['/stat'], {
@@ -153,7 +154,7 @@ export class IndexComponent {
     });
   }
 
-  getRanked(){
+  getRanked() {
     const urlall = this.constants.API_ENDPOINT + '/show/get/diff';
     this.http.get(urlall).subscribe(
       (response: any) => {
@@ -166,7 +167,9 @@ export class IndexComponent {
     );
   }
 
-  showprofile(data: any){
-    this.router.navigate(['/profileother'], { queryParams: { data: JSON.stringify(data) } });
+  showprofile(data: any) {
+    this.router.navigate(['/profileother'], {
+      queryParams: { data: JSON.stringify(data) },
+    });
   }
 }
