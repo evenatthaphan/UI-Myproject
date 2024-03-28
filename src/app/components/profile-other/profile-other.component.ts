@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Constants } from '../../config/constants';
 import { ChangeDetectorRef } from '@angular/core';
 import { UserPostRequest, ImagePostRequest } from '../../model/data_get_res';
@@ -42,7 +42,8 @@ export class ProfileOtherComponent {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     private constants: Constants,
-    private http: HttpClient
+    private http: HttpClient,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -76,6 +77,11 @@ export class ProfileOtherComponent {
   //     queryParams: { data: JSON.stringify(this.data) },
   //   });
   // }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 
   
   changePage3() {

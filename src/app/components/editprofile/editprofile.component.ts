@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClient } from '@angular/common/http';
@@ -7,13 +7,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { Constants } from '../../config/constants';
 import { UserPostRequest } from '../../model/data_get_res';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-editprofile',
   standalone: true,
-  imports: [MatToolbar, MatButton, MatCardModule, MatIconModule, CommonModule, FormsModule],
+  imports: [MatToolbar, MatButton, MatCardModule, MatIconModule, CommonModule, FormsModule, MatButtonModule],
   templateUrl: './editprofile.component.html',
   styleUrl: './editprofile.component.scss',
 })
@@ -27,7 +27,8 @@ export class EditprofileComponent {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     private constants: Constants,
-    private http: HttpClient
+    private http: HttpClient,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -87,5 +88,9 @@ export class EditprofileComponent {
         alert('Failed to update profile. Please try again later.');
       }
     );
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

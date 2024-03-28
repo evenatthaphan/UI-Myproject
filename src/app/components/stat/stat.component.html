@@ -1,35 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .container {
-            width: 100%;
-            text-align: center;
-        }
-
-        .chart {
-            margin: 20px auto; /* กำหนดระยะขอบซ้ายและขวาเท่ากัน และจัดการอยู่ตรงกลาง */
-            max-width: 1200px; /* กำหนดความกว้างสูงสุดของ chart */
-            border: 1px solid #ccc; /* เพิ่มเส้นขอบสีเทาเพื่อเพิ่มความสวยงาม */
-            border-radius: 5px; /* เพิ่มขอบมนและทำให้มุมของกรอบเป็นวงกลม */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อเพิ่มความลึก */
-        }
-
-        canvas {
-            display: block; /* ให้ canvas เป็น block element เพื่อให้กรอบที่มีความกว้างเท่ากับตัวเอง */
-            width: 100%; /* ทำให้ canvas มีความกว้างเท่ากับขอบตรงกลางของ .chart */
-            height: auto; /* ทำให้ canvas ปรับความสูงตามอัตราส่วน */
-        }
-    </style>
-</head>
 <body>
-    <div class="container">
-        <div class="chart">
-            <canvas #myChart></canvas>
-        </div>
-    </div>
-</body>
-</html>
+  
+    <div style="display: flex; align-items: center; padding: 10px;">
+     <button class="button" (click)="goBack()" style="margin-left: 10%;">
+       <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+         <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
+       </svg>
+       <span>Back</span>
+     </button>
+     <h1 style="margin-left: 30%;">Statistics</h1>
+   </div>
+   
+   <div style="display: flex; flex-direction: row;">
+     <!-- ส่วนทางด้านซ้าย -->
+     <div style="width: 30%; margin-top: 5%;">
+       <div *ngFor="let item of data; let i = index" style="margin-left: 50px; margin-bottom: 50px;">
+         <div>
+           <img [src]="item.imageURL" alt="image error" class="image" style="width: 230px; height: 230px; object-fit: cover; padding: 20px;">
+           <p> Image Name : {{item.imageName}}  </p>
+           <div>
+             <p> Score : {{item.voteCount}} </p>
+           </div>
+         </div>
+       </div>
+     </div>
+   
+     <!-- ส่วนทางด้านขวา -->
+     <div style="width: 70%;">
+       <div id="chartContainer">
+         <canvas id="myChart"></canvas>
+       </div>
+     </div>
+   </div>
+   
+   
+ </body>

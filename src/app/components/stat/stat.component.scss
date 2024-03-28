@@ -78,16 +78,14 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('/assets/photo/hbg.jpg');
+    background-image: url('/assets/image/wp11165980.webp');
     background-size: cover;
-    filter: blur(10px);
-
+    filter: blur(4px);
 }
 
 body {
     overflow-y: auto;
     color: white;
-    text-align: center;
 }
 
 body>* {
