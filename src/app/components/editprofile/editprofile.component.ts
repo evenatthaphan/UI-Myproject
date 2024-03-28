@@ -94,3 +94,4 @@ export class EditprofileComponent {
     this.location.back();
   }
 }
+
