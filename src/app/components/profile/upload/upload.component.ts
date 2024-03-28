@@ -25,6 +25,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
 })
 export class UploadComponent implements OnInit {
   data: UserPostRequest[] = [];
+  datapic: ImagePostRequest[] = [];
   userId: any;
   selectedFile: File | null = null; // Added to declare selectedFile
   // imageName: string = '';

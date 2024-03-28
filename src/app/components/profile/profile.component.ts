@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class DialogAnimationsExampleDialog {
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
@@ -33,7 +34,6 @@ export class DialogAnimationsExampleDialog {
     MatCardModule,
     MatIconModule,
     MatDialogModule,
-   
   ],
 })
 export class ProfileComponent {
@@ -48,7 +48,8 @@ export class ProfileComponent {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     private constants: Constants,
-    private http: HttpClient
+    private http: HttpClient,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -78,8 +79,20 @@ export class ProfileComponent {
   // }
 
   changePage2() {
-    this.router.navigate(['/profile/upload'], {
-      queryParams: { data: JSON.stringify(this.data) },
+    if (this.allimage.length < 5) {
+      this.router.navigate(['/profile/upload'], {
+        queryParams: { data: JSON.stringify(this.data) },
+      });
+    } else {
+      this.openSnackBar();
+    }
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Can not upload picture > 5.', 'Done', {
+      duration: 5000, // 5 วินาที
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center',
     });
   }
 
@@ -95,9 +108,12 @@ export class ProfileComponent {
     });
   }
 
-  statPage(data: any) {
+  statPage(imageID: number) {
     this.router.navigate(['/stat'], {
-      queryParams: { data: JSON.stringify(data) },
+      queryParams: {
+        data: JSON.stringify(this.data),
+        imageID: JSON.stringify(imageID),
+      },
     });
   }
 
@@ -114,7 +130,6 @@ export class ProfileComponent {
       }
     );
   }
-
 
   daletepicture() {
     const url = `${this.constants.API_ENDPOINT}/delete/${this.imageID}`;

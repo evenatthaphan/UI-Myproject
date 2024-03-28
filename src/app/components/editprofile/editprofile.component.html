@@ -47,10 +47,10 @@
   <div *ngIf="userOriginal">
     <form (ngSubmit)="updateProfile()">
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="userOriginal.username" required>
+      <input type="text" id="username" name="username" #userName required>
   
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="userOriginal.email" required>
+      <input type="email" id="email" name="email" #email required>
   
       <!-- Add other input fields for other properties -->
   

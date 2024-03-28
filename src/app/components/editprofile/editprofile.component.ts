@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
 export class EditprofileComponent {
   data: UserPostRequest[] = [];
   userId: any;
-  userOriginal: UserPostRequest | null = null; // ประกาศตัวแปร userOriginal และกำหนดค่าเริ่มต้นเป็น null
+  userOriginal: any; // ประกาศตัวแปร userOriginal และกำหนดค่าเริ่มต้นเป็น null
 
   constructor(
     private router: Router,
@@ -54,12 +54,12 @@ export class EditprofileComponent {
       return;
     }
   
-    const url = `${this.constants.API_ENDPOINT}/user/${this.userId}`;
-    this.http.get<UserPostRequest>(url).subscribe(
+    const url = `${this.constants.API_ENDPOINT}/getuserprofile/${this.userId}`;
+    this.http.get(url).subscribe(
       (response) => {
         this.userOriginal = response;
       },
-      (error) => {
+      function (error) {
         console.error('Error fetching user profile:', error);
       }
     );
@@ -75,7 +75,7 @@ export class EditprofileComponent {
   }
 
   updateUserProfile(id: number, user: UserPostRequest): void {
-    const url = `${this.constants.API_ENDPOINT}/update/${id}`;
+    const url = `${this.constants.API_ENDPOINT}/update/edit/${id}`;
     this.http.put(url, user).subscribe(
       (response: any) => {
         console.log('Updated profile:', response);
