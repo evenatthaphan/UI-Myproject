@@ -12,6 +12,7 @@ import { HeaderComponent } from '../index/header/header.component';
 import { HttpClient } from '@angular/common/http';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profile-other',
@@ -40,7 +41,9 @@ export class ProfileOtherComponent {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     private constants: Constants,
-    private http: HttpClient
+    private http: HttpClient,
+    private location: Location
+
   ) {}
 
   ngOnInit() {
@@ -105,6 +108,10 @@ export class ProfileOtherComponent {
         console.error('API Error:', error);
       }
     );
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

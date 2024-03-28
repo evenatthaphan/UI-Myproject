@@ -125,7 +125,7 @@ export class StatComponent implements OnInit {
         container.style.marginTop = '-10%';
         container.style.width = '700px';
         container.style.height = '500px';
-        // container.style.marginLeft = '50px';
+        container.style.marginLeft = '50px';
 
         const canvas = document.createElement('canvas');
         canvas.id = 'myChart-' + imageID.imageID; // ใช้ imageId ในการกำหนด ID ของ canvas

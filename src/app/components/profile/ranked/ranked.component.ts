@@ -83,7 +83,7 @@ getallpic() {
 }
 
 getScore_current() {
-  const url = `${this.constants.API_ENDPOINT}/rank/chart`;
+  const url = this.constants.API_ENDPOINT + '/rank/chart';
 
   this.http.get(url).subscribe(
     (response: any) => {
@@ -99,7 +99,7 @@ getScore_current() {
 }
 
 calculateImageRanks() {
-  const url = `${this.constants.API_ENDPOINT}/rank/rank`;
+  const url = this.constants.API_ENDPOINT + '/rank/rank';
   
   this.http.get(url).subscribe(
     (response: any) => {
