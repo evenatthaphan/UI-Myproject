@@ -1,60 +1,64 @@
-
-.dropdown {
-    margin-left: 150px;
-}
-
-.container {
-    display: grid;
-    margin: 20px 160px;
-}
-
-.content-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* สีพื้นหลังโปร่งใส /
-    border-radius: 0.5rem; / ขอบโค้งของฟอร์ม /
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); / เงาของฟอร์ม /
+body {
+    margin: 0px 0px;
+    padding: 0px 0px;
+   }
+   
+   .dropdown {
+       margin-left: 150px;
+   }
+   
+   .container {
+       display: grid;
+       margin: 20px 160px;
+   }
+   
+   .content-container {
+    background-color: rgba(212, 212, 212, 0.8); /* สีพื้นหลังโปร่งใส */
+    border-radius: 0.5rem; /* ขอบโค้งของฟอร์ม */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาของฟอร์ม */
     margin: 20px 20px;
     width: 1100px;
     height: 220px;
     display: flex;
     align-items: center;
+    color: black;
 }
 
-
+   
    img {
-    width: 120px; / กำหนดความกว้างของรูปภาพ /
-    height: 180px; / กำหนดความสูงของรูปภาพ /
-    border-radius: 0.5rem; / เพิ่มขอบโค้งสำหรับรูปภาพ /
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); / เพิ่มเงาให้กับรูปภาพ */
+    width: 120px; /* กำหนดความกว้างของรูปภาพ */
+    height: 180px; /* กำหนดความสูงของรูปภาพ */
+    border-radius: 0.5rem; /* เพิ่มขอบโค้งสำหรับรูปภาพ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับรูปภาพ */
 }
+   
+   .img {
+       width: 150px;
+       height: 170px;
+       object-fit: cover;
+       z-index: 1;
+       margin: 20px;
+   }
+   
+   .img-number {
+        margin: 60px 10px;
+   }
+   
+   .img-rank {
+       display: flex;
+       margin: 60px 10px;
 
-.img {
-    width: 150px;
-    height: 170px;
-    object-fit: cover;
-    z-index: 1;
-    margin: 20px;
-}
+   }
+   
+   .img-name {
+       margin: 60px 100px;
+   }
+   
+   .img-score {
+       margin: 60px 100px;
+   }
 
-.img-number {
-    margin: 60px 10px;
-}
-
-.img-rank {
-    display: flex;
-    margin: 60px 10px;
-
-}
-
-.img-name {
-    margin: 60px 100px;
-}
-
-.img-score {
-    margin: 60px 100px;
-}
-
-.content-container {
+   .content-container {
     display: flex;
     align-items: center;
 }

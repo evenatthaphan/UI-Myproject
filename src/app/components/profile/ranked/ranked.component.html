@@ -1,38 +1,48 @@
-<div
-  style="
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 150px;
-    margin-right: 150px;
-  "
->
-  <div *ngIf="allimage.length > 0">
-    <div class="container">
-      <div *ngFor="let item of allimage; let i = index">
-        <div class="content-container">
-          <div class="img">
-            <img
-              src="{{ item.imageURL }}"
-              alt="photo"
-              width="200px"
-              height="300px"
-            />
-          </div>
-          <div class="img-number">
-            <h2>{{ score_current[i].point }}</h2>
-          </div>
-          <div class="img-rank">
-            <h2>rank</h2>
-          </div>
-          <div class="img-name">
-            <h2>{{ item.imageName }}</h2>
-          </div>
-          <div class="img-score">
-            <h2>Score {{ item.voteCount }}</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<html>
+    <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <body>
+        <ng-template ngIf="allimage.length > 0">
+            <div class="container">
+                <div *ngFor="let item of allimage; let i = index">
+                    <div class="content-container">
+                        <div class="img">
+                            <img src="{{ item.imageURL }}" alt="photo">
+                        </div>
+                        <div class="img-number" *ngIf="result && result[i]">
+                          <h2>{{ result[i].point }}</h2>
+                      </div>                                                               
+                        <div class="img-rank">
+                          <div *ngIf="getrank[i].diff > 0">
+                            <h2 class="fontcolor">
+                              +{{ getrank[i].diff }}
+                              <mat-icon style="color: green">arrow_upward</mat-icon>
+                            </h2>
+                          </div>
+                          <div *ngIf="getrank[i].diff < 0">
+                            <h2 class="fontcolor">
+                              {{ getrank[i].diff }}
+                              <mat-icon style="color: red">arrow_downward</mat-icon>
+                            </h2>
+                          </div>
+                          <div *ngIf="getrank[i].diff == 0">
+                            <h2 class="fontcolor" style="color: black;">-</h2>
+                          </div>
+                        </div>
+                        <div class="img-name">
+                            <h2>{{item.imageName}}</h2>
+                        </div>
+                        <div class="img-score">
+                            <h2>Score {{item.voteCount}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </ng-template>
+
+
+    </body>
+</html>
