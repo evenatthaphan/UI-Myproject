@@ -80,6 +80,7 @@ export class ProfileComponent {
 
   changePage2() {
     if (this.allimage.length < 5) {
+      
       this.router.navigate(['/profile/upload'], {
         queryParams: { data: JSON.stringify(this.data) },
       });
